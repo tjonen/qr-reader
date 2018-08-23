@@ -43,7 +43,9 @@ def process_frame(frame):
     decoded_objs = decode(frame)
     draw_positions(frame, decoded_objs)
     font = cv2.FONT_HERSHEY_SIMPLEX
-    cv2.putText(img,'OpenCV',(10,500), font, 4,(255,255,255),2,cv2.LINE_AA)
+    # 課題1 認識したQRコード数の表示
+    cv2.putText(frame, 'Detected QR codes: {}'.format(len(decoded_objs)),
+                (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
     
     
 def decode(frame):
