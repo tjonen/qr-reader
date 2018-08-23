@@ -1,3 +1,4 @@
+from __future__ import print_function
 from flask import Flask, Response
 from pyzbar import pyzbar
 from picamera.array import PiRGBArray
@@ -8,11 +9,13 @@ import numpy as np
 import cv2
 import time
 
+
 camera = PiCamera()
 camera.resolution = (640, 480)
 camera.framerate = 32
 rawCapture = PiRGBArray(camera, size=(640, 480))
 time.sleep(0.5)
+
 
 app = Flask(__name__)
 
